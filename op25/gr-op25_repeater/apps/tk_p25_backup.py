@@ -37,10 +37,10 @@ VC_TIMEOUT_RETRIES = 3   # Number of voice channel framing timeouts before expir
 TGID_DEFAULT_PRIO = 3    # Default tgid priority when unassigned
 TGID_HOLD_TIME = 2.0     # Number of seconds to give previously active tgid exclusive channel access
 TGID_SKIP_TIME = 4.0     # Number of seconds to blacklist a previously skipped tgid
-TGID_EXPIRY_TIME = 0.5   # Number of seconds to allow tgid to remain active with no updates received
-FREQ_EXPIRY_TIME = 1.0   # Number of seconds to allow freq to remain active with no updates received
-EXPIRY_TIMER = 0.1       # Number of seconds between checks for tgid/freq expiry
-PATCH_EXPIRY_TIME = 40.0 # Number of seconds until patch expiry
+TGID_EXPIRY_TIME = 1.0   # Number of seconds to allow tgid to remain active with no updates received
+FREQ_EXPIRY_TIME = 1.2   # Number of seconds to allow freq to remain active with no updates received
+EXPIRY_TIMER = 0.2       # Number of seconds between checks for tgid/freq expiry
+PATCH_EXPIRY_TIME = 20.0 # Number of seconds until patch expiry
 
 #################
 # Helper functions

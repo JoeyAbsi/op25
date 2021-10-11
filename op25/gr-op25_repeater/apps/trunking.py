@@ -70,9 +70,9 @@ class trunked_system (object):
         self.cc_list = []
         self.cc_list_index = -1
         self.cc_timeouts = -1
-        self.CC_HUNT_TIME = 5.0
-        self.PATCH_EXPIRY_TIME = 20.0
-        self.FREQ_EXPIRY_TIME = 1.2
+        self.CC_HUNT_TIME = 1.0
+        self.PATCH_EXPIRY_TIME = 40.0
+        self.FREQ_EXPIRY_TIME = 1.0
         self.center_frequency = 0
         self.last_tsbk = 0
         self.talkgroups = {}

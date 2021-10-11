@@ -1,2 +1,2 @@
-"Sysname"	"Control Channel List"	"Offset"	"NAC"	"Modulation"	"TGID Tags File"	"Whitelist"	"Blacklist"	"Center Frequency"
-"P25 SYSTEM"	"876.54320"	"0"	"0"	"cqpsk"	""	""	""	""
+Sysname	Control Channel List	Offset	NAC	Modulation	TGID Tags File	Whitelist	Blacklist	Center Frequency
+SERAM Public Security	857.675, 857.95, 857.975, 859.4375, 859.675, 862.8875	0	0xcf2	cqpsk	montreal.tsv	65061, 63021, 63041, 63365		

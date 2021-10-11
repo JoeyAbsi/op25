@@ -536,7 +536,7 @@ function do_onload() {
     ele.style["display"] = "";
     set_tuning_step_sizes();
     send_command("get_terminal_config", 0, 0);
-    setInterval(do_update, 1000);
+    setInterval(do_update, 100);
     b = document.getElementById("b1");
     b.className = "nav-button-active";
 }

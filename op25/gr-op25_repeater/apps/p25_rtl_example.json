@@ -2,9 +2,9 @@
     "channels": [
         {
             "name": "Voice_ch1", 
-            "device": "sdr0",
-            "trunking_sysname": "P25 System",
-            "meta_stream_name": "stream_0",
+            "device": "",
+            "trunking_sysname": "SERAM",
+            "meta_stream_name": "",
             "demod_type": "cqpsk", 
             "destination": "udp://127.0.0.1:23456",
             "excess_bw": 0.2,
@@ -14,9 +14,9 @@
             "symbol_rate": 4800,
             "enable_analog": "off",
             "blacklist": "",
-            "whitelist": "stream0.wlist"
+            "whitelist": ""
         },
-        {
+        /*{
             "name": "Voice_ch2",
             "device": "sdr1",
             "trunking_sysname": "P25 System",
@@ -30,22 +30,22 @@
             "symbol_rate": 4800,
             "enable_analog": "off",
             "blacklist": "",
-            "whitelist": "stream1.wlist"
-        }
+            "whitelist": ""
+        }*/
     ], 
     "devices": [
         {
-            "args": "rtl=0",
-            "gains": "LNA:39",
+            "args": "rtl",
+            "gains": "LNA:248",
             "gain_mode": false,
-            "name": "sdr0",
+            "name": "",
             "offset": 0,
             "ppm": 0.0,
             "rate": 1000000,
             "usable_bw_pct": 0.85,
             "tunable": true
         },
-        {
+        /*{
             "args": "rtl=1",
             "gains": "LNA:39",
             "gain_mode": false,
@@ -55,25 +55,25 @@
             "rate": 1000000,
             "usable_bw_pct": 0.85,
             "tunable": true
-        }
+        }*/
     ],
     "trunking": {
         "module": "tk_p25.py",
         "chans": [
             {
-                "nac": "0x0",
-                "sysname": "P25 System",
-                "control_channel_list": "773.84375,774.84375",
-                "whitelist": "",
+                "nac": "0xcf1",
+                "sysname": "P25 SERAM",
+                "control_channel_list": "770.50625",
+                "whitelist": "50001, 50002, 50003, 50004, 50005",
                 "blacklist": "",
-                "tgid_tags_file": "trunk-tags.tsv",
-                "rid_tags_file": "trunk-rids.tsv",
+                "tgid_tags_file": "montreal.tsv",
+                "rid_tags_file": "rid-mtl.tsv",
                 "tdma_cc": false,
                 "crypt_behavior": 2
             }
         ]
     },
-    "metadata": {
+   /* "metadata": {
         "module": "icemeta.py",
         "streams": [
             {
@@ -99,7 +99,7 @@
                 "delay": 0.0
             }
         ]
-    },
+    }, */
     "audio": {
         "module": "sockaudio.py",
         "instances": [
@@ -110,13 +110,13 @@
                 "audio_gain": 1.0,
                 "number_channels": 1
             },
-            {
+            /*{
                 "instance_name": "audio1",
                 "device_name": "default",
                 "udp_port": 23466,
                 "audio_gain": 1.0,
                 "number_channels": 1
-            }
+            }*/
         ]
     },
     "terminal": {

@@ -19,10 +19,10 @@
 	border-style: solid;
 	padding: 3px;
 	font-family: Arial, Helvetica, sans-serif;
-	color: #f0f6ff;
+	color: #000;
 	font-weight: bold;
-	background: #17438a; /* For browsers that do not support gradients */
-	/*background: linear-gradient(#669999, #77AAAA);*/
+	background: #669999; /* For browsers that do not support gradients */
+	background: linear-gradient(#669999, #77AAAA);
 
 }
 
@@ -36,14 +36,14 @@
 hr {
 	width:   730px;
 	float: left;
-    padding: 0px;
+        padding: 0px;
 }
 
 /* the buttons */
 
 .scan-button {
 	/* background-color: #669999; */
-	border-color: #5a72d6;
+	border-color: black;
 	color: white;
 	padding: 10px 10px;
 	text-decoration: none;
@@ -53,9 +53,9 @@ hr {
 	/* width: 77px;*/
 	font-size: 14px;
 	font-weight: bold;
-	/*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);*/
-	background: #5a72d6; /* For browsers that do not support gradients */
-	/*background: linear-gradient(#669999, #82B0B0);*/
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+	background: #669999; /* For browsers that do not support gradients */
+	background: linear-gradient(#669999, #82B0B0);
 }
 
 .plot-button {
@@ -174,29 +174,29 @@ div.adjacent {
 
 .copyr {
 
-	font-family: Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
-    padding: 20px;
+        padding: 20px;
 	color: #484848;
 	float: right;
 }
 
 .label {
 
-	font-family: Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #484848;
 }
 
 .value {
 
-	font-family: Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #000000;
 	font-weight: bold;
 }
 
 .systgid {
 
-	font-family: Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #000060;
 	font-weight: bold;
 	font-size: 24px;
@@ -206,7 +206,7 @@ div.adjacent {
 
 .nac {
 
-	font-family: Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #000060;
 	font-weight: bold;
 	font-size: 18px;
@@ -302,7 +302,7 @@ div.adjacent {
 
 .copyright-text {
 
-	font-family: Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #000060;
 	font-size: 10pt;
 }
@@ -312,15 +312,14 @@ div.adjacent {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #d9e7ff;
-	/*background: linear-gradient(#bbbbbb, #cccccc);*/
+	background-color: #bbb;
+	background: linear-gradient(#bbbbbb, #cccccc);
 }
 
 .nav-li {
 	float: left;
 	border-right: 1px solid #000;
-	background: #d9e7ff;
-	/*background: linear-gradient(#bbbbbb, #cccccc);*/
+	background: linear-gradient(#bbbbbb, #cccccc);
 }
 
 .nav-li-active {
@@ -337,8 +336,8 @@ div.adjacent {
 }
 
 .nav-button {
-	background-color:  #d9e7ff;
-	/*background: linear-gradient(#bbbbbb, #cccccc);*/
+	background-color:  #bbb;
+	background: linear-gradient(#bbbbbb, #cccccc);
 	color:     #000;
 	border:   0px;
 	padding:   20px;
@@ -349,9 +348,9 @@ div.adjacent {
 
 
 .nav-button-active {
-	background-color:  #5a72d6;
-	/*background: linear-gradient(#8bb, #9cc);*/
-	color:     #FFF;
+	background-color:  #9cc;
+	background: linear-gradient(#8bb, #9cc);
+	color:     #000;
 	border:   0px;
 	padding:   20px;
 	display:   block;
@@ -360,11 +359,11 @@ div.adjacent {
 }
 
 .nav-button:hover {
-	background-color: #6495e8;
-	/*background: linear-gradient(#588, #699);*/
+	background-color: #699;
+	background: linear-gradient(#588, #699);
 }
 
 .nav-button-active:hover {
-	background-color: #5a72d6;
-	/*background: linear-gradient(#588, #699);*/
+	background-color: #699;
+	background: linear-gradient(#588, #699);
 }
