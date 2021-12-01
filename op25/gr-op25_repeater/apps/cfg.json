@@ -1,74 +1,52 @@
 {
     "channels": [
         {
-            "device": "SERAM",
+            "name": "SERAM Public Safety", 
+            "device": "sdr0",
+            "trunking_sysname": "SERAM",
+            "meta_stream_name": "metastream_0",
             "demod_type": "cqpsk", 
-            "destination": "udp://127.0.0.1:56120", 
-            "excess_bw": 0.2, 
-            "filter_type": "rc", 
-            "frequency": 770506250, 
-            "if_rate": 24000, 
-            "name": "p25", 
-            "plot": "symbol", 
+            "cqpsk_tracking": true,
+            "tracking_threshold": 30,
+            "tracking_feedback": 0.85,
+            "destination": "udp://127.0.0.1:23456",
+            "excess_bw": 0.2,
+            "filter_type": "rc",
+            "frequency": 770506250,
+            "if_rate": 24000,
+            "plot": "",
             "symbol_rate": 4800,
-            "raw_output": "",
-            "raw_input": "",
-            "raw_seek": 0,
             "enable_analog": "off",
-            "nbfm_deviation": 4000,
-            "nbfm_squelch": -60
-
-        }, 
-
+            "blacklist": "",
+            "whitelist": "seram.wlist"
+        }
     ], 
     "devices": [
         {
-            "args": "rtl", 
-            "frequency": 770506250, 
-            "gains": "lna:248", 
+            "args": "rtl=0",
+            "gains": "LNA:248",
             "gain_mode": false,
-            "name": "SERAM", 
-            "offset": 0, 
-            "ppm": 0.0, 
-            "rate": 1000000, 
+            "name": "sdr0",
+            "offset": 0,
+            "ppm": 0.0,
+            "rate": 2400000,
             "usable_bw_pct": 0.85,
             "tunable": true
-        },
-
+        }
     ],
     "trunking": {
-        "module": "",
+        "module": "tk_p25.py",
         "chans": [
             {
-                "lcn": 1,
-                "frequency": 770506250,
-                "cc": 0
-            },
-            {
-                "lcn": 2,
-                "frequency": 111333333,
-                "cc": 0
-            }
-        ]
-    },
-    "metadata": {
-        "module": "icemeta.py",
-        "streams": [
-            {
-                "stream_name": "stream_0",
-                "icecastServerAddress": "your_stream_host_and_port",
-                "icecastMountpoint": "your_mountpoint_name",
-                "icecastPass": "your_password",
-                "icecastMountExt": ".xspf",
-                "delay": 0.0
-            },
-            {
-                "stream_name": "stream_1",
-                "icecastServerAddress": "your_second stream_host_and_port",
-                "icecastMountpoint": "your_second_mountpoint_name",
-                "icecastPass": "your_second_password",
-                "icecastMountExt": ".xspf",
-                "delay": 0.0
+                "nac": "0xcf1",
+                "sysname": "SERAM",
+                "control_channel_list": "770.50625",
+                "whitelist": "50001, 50002, 50003, 50004, 50005",
+                "blacklist": "",
+                "tgid_tags_file": "montreal.tsv",
+                "rid_tags_file": "rid-mtl.tsv",
+                "tdma_cc": false,
+                "crypt_behavior": 2
             }
         ]
     },
@@ -87,9 +65,8 @@
     "terminal": {
         "module": "terminal.py",
         "terminal_type": "curses",
-        "#terminal_type": "http:127.0.0.1:8080",
-        "terminal_timeout": 5.0,
-        "curses_plot_interval": 0.2,
+        "terminal_type": "http:127.0.0.1:8080",
+        "curses_plot_interval": 0.1,
         "http_plot_interval": 1.0,
         "http_plot_directory": "../www/images",
         "tuning_step_large": 1200,

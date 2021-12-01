@@ -87,7 +87,7 @@ hr {
 	font-weight: bold;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
 	background: #669999; /* For browsers that do not support gradients */
-	background: linear-gradient(#669999, #82B0B0);
+	background: #5a72d6;
 }
 
 .cap-button {
@@ -103,7 +103,7 @@ hr {
 	font-weight: bold;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
 	background: #669999; /* For browsers that do not support gradients */
-	background: linear-gradient(#669999, #82B0B0);
+	background: #5a72d6;
 }
 
 /* flex container for top buttons */

@@ -172,7 +172,7 @@ class curses_terminal(threading.Thread):
         self.stdscr.refresh()
 
     def do_auto_update(self):
-        UPDATE_INTERVAL = 0.5    # sec.
+        UPDATE_INTERVAL = 0.25    # sec.
         if not self.auto_update:
             return False
         if self.last_update + UPDATE_INTERVAL > time.time():
@@ -545,9 +545,9 @@ class udp_terminal(threading.Thread):
         self.input_q = input_q
         self.output_q = output_q
         self.keep_running = True
-        self.port = port
+        self.port = 8080
         self.remote_ip = '127.0.0.1'
-        self.remote_port = 0
+        self.remote_port = 8080
         self.keepalive_until = 0
 
         self.setup_socket(port)
