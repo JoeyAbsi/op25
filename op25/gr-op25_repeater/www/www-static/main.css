@@ -33,8 +33,19 @@
 
 }
 
+
+#clock {
+            font-size: 25px;
+            width: 730px;
+            margin: -83px;
+            text-align: center;
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+        }
+        
+
 hr {
-	width:   730px;
+	width:   430px;
 	float: left;
     padding: 0px;
 }
@@ -47,7 +58,7 @@ hr {
 	color: white;
 	padding: 10px 10px;
 	text-decoration: none;
-	margin: 4px 2px;
+	margin: 30px 2px;
 	cursor: pointer;
 	width: 69px;
 	/* width: 77px;*/
@@ -56,6 +67,56 @@ hr {
 	/*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);*/
 	background: #5a72d6; /* For browsers that do not support gradients */
 	/*background: linear-gradient(#669999, #82B0B0);*/
+}
+.shutdown {
+	/* background-color: #669999; */
+	border-color: red;
+	color: white;
+	padding: 10px 10px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	width: 69px;
+	/* width: 77px;*/
+	font-size: 14px;
+	font-weight: bold;
+	/*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);*/
+	background: red; /* For browsers that do not support gradients */
+	/*background: linear-gradient(#669999, #82B0B0);*/
+}
+input[type="checkbox"]
+{
+	/* background-color: #669999; */
+	border-color: #5a72d6;
+	color: white;
+	padding: 10px 10px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	width: 69px;
+	/* width: 77px;*/
+	font-size: 14px;
+	font-weight: bold;
+	background: #5a72d6;
+}
+.night {
+	/* background-color: #669999; */
+	border-color: #5a72d6;
+	color: white;
+	padding: 10px 10px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	width: 69px;
+	/* width: 77px;*/
+	font-size: 14px;
+	font-weight: bold;
+	background: #5a72d6;
+}
+input[type="checkbox"]:checked ~ .check
+{
+	background: #fff;
+	box-shadow: 0 0 0 12000px #092c3e;
 }
 
 .plot-button {
@@ -115,7 +176,7 @@ but can be safely left in place even when using a fixed width
 
 .flex-container {
   display: flex;
-  width: 730px;
+  width: 400px;
   justify-content: space-between;
 
 }
@@ -153,7 +214,7 @@ div.system {
 	position: absolute;
 	top: 10px;
 	left: 0;
-	width: 54%;
+	width: 59%;
 	height: auto;
 	border: 0px solid #d00
 }
@@ -162,9 +223,9 @@ div.system {
 
 div.adjacent {
 
-	position: relative;
-	top: 10px;
-	width: 42%;
+	position: absolute;
+	top: 250px;
+	width: 59%;
 	float: right;
 	height: auto;
 	border: 0px solid #00f;
@@ -221,10 +282,10 @@ div.adjacent {
 
 .s2 {
 	display: table;
-	border: 1px solid #999;
+	border: 0px solid #999;
 	height: auto;
 	overflow: auto;
-	width: 720px;
+	width: 425px;
 	padding: 5px;
 	background: LightGray; /* For browsers that do not support gradients */
 	background: linear-gradient(White, Silver);
@@ -233,7 +294,7 @@ div.adjacent {
 
 .s2_row {
 	display: table-row;
-	width:auto;
+	width: auto;
 }
 
 .s2_cell_a {
@@ -244,7 +305,7 @@ div.adjacent {
 
 .s2_cell_b {
 	display: table-column;
-	float: left;
+	float: right;
 	width: 85%
 }
 
@@ -256,7 +317,7 @@ div.adjacent {
 
 .s2_cell_b2 {
 	display: table-column;
-	float: left;
+	float: right;
 	width: 72%
 }
 
@@ -331,7 +392,7 @@ div.adjacent {
 }
 
 .nav-bar {
-	width: 730px;
+	width: 430px;
 	padding: 0;
 	border: 1px solid #000;
 }
