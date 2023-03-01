@@ -325,7 +325,7 @@ function channel_status() {
     var html;
     var s2_freq = document.getElementById("s2_freq");
     var s2_tg = document.getElementById("s2_tg");
-    var s2_grp = document.getElementById("s2_grp");
+    //var s2_grp = document.getElementById("s2_grp");
     var s2_src = document.getElementById("s2_src");
     var s2_ch_txt = document.getElementById("s2_ch_txt");
     var s2_cap = document.getElementById("cap_bn");
@@ -339,9 +339,9 @@ function channel_status() {
     if (c_stream_url != "") {
         html += "</a>"
     }
-    if (c_ppm != null) {
+    /*if (c_ppm != null) {
         html += "<span class=\"value\"> (" + c_ppm.toFixed(3) + ")</span>";
-    }
+    }	DESACTIVER CORRECTION PPM*/
     s2_freq.innerHTML = html
     if ((c_system != null) && (channel_list.length == 0))
     {
@@ -363,7 +363,7 @@ function channel_status() {
     s2_tg.innerHTML = html;
 
     html = "";
-    if (current_tgid != null) {
+    /*if (current_tgid != null) {
         html += "<span class=\"value\">" + current_tgid + "</span>";
     }
     else if (c_grpaddr != 0) {
@@ -373,7 +373,7 @@ function channel_status() {
     {
         html += "<span class=\"value\">&nbsp;</span>";
     }
-    s2_grp.innerHTML = html;
+    s2_grp.innerHTML = html;	DESACTIVER TG ID*/
 
     html = "";
     if ((c_srcaddr != 0) && (c_srcaddr != 0xffffff)) 

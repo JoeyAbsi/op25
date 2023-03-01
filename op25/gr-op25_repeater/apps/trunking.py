@@ -686,7 +686,12 @@ class trunked_system (object):
                     else:          # Unit request (currently unhandled)
                         pass
                 else:          # Deactivate
-                    self.del_patch(sg, [ga])
+                    if grg_g == 1: # Group request
+                        algid = (rta >> 16) & 0xff
+                        ga    =  rta        & 0xffff
+                        self.del_patch(sg, [ga])
+                    else:          # Unit request (currently unhandled)
+                        pass
         elif opcode == 0x34:   # iden_up vhf uhf
             iden = (tsbk >> 76) & 0xf
             bwvu = (tsbk >> 72) & 0xf
@@ -1839,6 +1844,7 @@ class rx_ctl (object):
                 tsys.add_skiplist(self.current_tgid, end_time=end_time)
                 if self.hold_mode is False:
                     self.current_tgid = None
+                    self.tgid_hold = None
                 new_state = self.states.CC
                 new_frequency = tsys.trunk_cc
             

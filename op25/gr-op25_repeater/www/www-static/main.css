@@ -1,7 +1,12 @@
+#div_s1, #div_s2, #div_s3, .flex-container, adjacent{
+	margin: 13px;
+}
+
 #div_status body {
 
 	background-color: LightGray;
 	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
 
 }
 
@@ -35,19 +40,20 @@
 
 
 #clock {
-            font-size: 25px;
-            width: 730px;
-            margin: -83px;
-            text-align: center;
-			font-family: Arial, Helvetica, sans-serif;
-			font-weight: bold;
+	font-size: 55px;
+	width: 945px;
+	margin: -95px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: white;
         }
         
 
 hr {
 	width:   430px;
 	float: left;
-    padding: 0px;
+    	padding: 0px;
 }
 
 /* the buttons */
@@ -58,11 +64,11 @@ hr {
 	color: white;
 	padding: 10px 10px;
 	text-decoration: none;
-	margin: 30px 2px;
+	margin: 5px 2px;
 	cursor: pointer;
-	width: 69px;
+	width: 83.5px;
 	/* width: 77px;*/
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: bold;
 	/*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);*/
 	background: #5a72d6; /* For browsers that do not support gradients */
@@ -131,8 +137,8 @@ input[type="checkbox"]:checked ~ .check
 	font-size: 14px;
 	font-weight: bold;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
-	background: #669999; /* For browsers that do not support gradients */
-	background: linear-gradient(#669999, #82B0B0);
+	background: #44484d; /* For browsers that do not support gradients */
+	background: linear-gradient(#44484d, #000000);
 }
 
 .chan-button {
@@ -186,7 +192,7 @@ but can be safely left in place even when using a fixed width
   margin: 0px;
   text-align: center;
   line-height: 75px;
-  font-size: 30px;
+  font-size: 5px; /*espace en haut*/
 }
 
 
@@ -206,13 +212,12 @@ div.info {
 
 	text-align: left;
 	border: 0px solid #000;
-
 }
 
 div.system {
 
 	position: absolute;
-	top: 10px;
+	top: 0px;
 	left: 0;
 	width: 59%;
 	height: auto;
@@ -237,7 +242,7 @@ div.adjacent {
 
 	font-family: Helvetica, sans-serif;
 	font-size: 14px;
-    padding: 20px;
+    	padding: 20px;
 	color: #484848;
 	float: right;
 }
@@ -245,14 +250,17 @@ div.adjacent {
 .label {
 
 	font-family: Helvetica, sans-serif;
-	color: #484848;
+	color: #9A9CA1;
+	font-weight: bold;
+	font-size: 23px;
 }
 
 .value {
 
 	font-family: Helvetica, sans-serif;
-	color: #000000;
+	color: #FFFFFF;
 	font-weight: bold;
+	font-size: 24px;
 }
 
 .systgid {
@@ -271,7 +279,6 @@ div.adjacent {
 	color: #000060;
 	font-weight: bold;
 	font-size: 18px;
-
 }
 
 /* .s1 .s2 .s3 DIVs for the sections. see index.html */
@@ -283,24 +290,27 @@ div.adjacent {
 .s2 {
 	display: table;
 	border: 0px solid #999;
-	height: auto;
+	height: 120px; /* Hauteur table system/frequency/tg/unit id */
 	overflow: auto;
 	width: 425px;
 	padding: 5px;
 	background: LightGray; /* For browsers that do not support gradients */
-	background: linear-gradient(White, Silver);
+	background: linear-gradient(#44484d, #26292b);
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
 }
 
 .s2_row {
 	display: table-row;
 	width: auto;
+	height: 30px
 }
 
 .s2_cell_a {
 	display: table-column;
 	float: left;
-	width: 15%
+	font-size: 23px;
+	font-weight: bold;
+	width: 18%
 }
 
 .s2_cell_b {
@@ -318,7 +328,7 @@ div.adjacent {
 .s2_cell_b2 {
 	display: table-column;
 	float: right;
-	width: 72%
+	width: 68% /* Espace entre system/frequency... et texte */
 }
 
 .s2_cell_c {

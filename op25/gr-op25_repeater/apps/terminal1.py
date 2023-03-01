@@ -51,8 +51,11 @@ import json
 import threading
 import traceback
 import socket
+
 from gnuradio import gr
+
 KEEPALIVE_TIME = 3.0   # no data received in (seconds)
+
 class q_watcher(threading.Thread):
     def __init__(self, msgq,  callback, **kwds):
         threading.Thread.__init__ (self, **kwds)
@@ -61,10 +64,12 @@ class q_watcher(threading.Thread):
         self.callback = callback
         self.keep_running = True
         self.start()
+
     def run(self):
         while(self.keep_running):
             msg = self.msgq.delete_head()
             self.callback(msg)
+
 class curses_terminal(threading.Thread):
     def __init__(self, input_q,  output_q, sock=None, **kwds):
         threading.Thread.__init__ (self, **kwds)
@@ -88,8 +93,10 @@ class curses_terminal(threading.Thread):
         self.lg_step = 1200
         self.send_command('get_terminal_config', 0, 0)
         self.start()
+
     def get_terminal_type(self):
         return "curses"
+
     def setup_curses(self):
         self.stdscr = curses.initscr()
         self.stdscr.keypad(1)
@@ -99,8 +106,10 @@ class curses_terminal(threading.Thread):
             sys.stdout.write("Terminal window too small! Minimum size [70 x 6], actual [%d x %d]\n" % (self.maxx, self.maxy))
             self.keep_running = False
             return
+
         curses.noecho()
         curses.halfdelay(1)
+
         self.title_bar = curses.newwin(1, self.maxx, 0, 0)
         self.help_bar = curses.newwin(1, self.maxx, self.maxy-1, 0)
         self.top_bar = curses.newwin(1, self.maxx, 1, 0)
@@ -113,13 +122,17 @@ class curses_terminal(threading.Thread):
         self.text_win = curses.newwin(1, 11, self.maxy-1, 10)
         self.textpad = curses.textpad.Textbox(self.text_win)
         self.stdscr.refresh()
+
         self.title_help()
+
     def resize_curses(self):
         self.maxy, self.maxx = self.stdscr.getmaxyx()
  
         if (self.maxx < 60) or (self.maxy < 6):    # do not resize if window is now too small
             return 
+
         self.stdscr.erase()
+
         self.title_bar.resize(1, self.maxx)
         self.help_bar.resize(1, self.maxx)
         self.help_bar.mvwin(self.maxy-1, 0)
@@ -134,12 +147,15 @@ class curses_terminal(threading.Thread):
         self.status2.resize(1, 15)
         self.status2.mvwin(self.maxy-2, self.maxx-15)
         self.stdscr.refresh()
+
         self.title_help()
+
     def end_terminal(self):
         try:
             curses.endwin()
         except:
             pass
+
     def title_help(self):
         if self.capture_active:
             title_str = "OP25 (symbol capture)"
@@ -154,18 +170,21 @@ class curses_terminal(threading.Thread):
         self.help_bar.refresh()
         self.stdscr.move(1,0)
         self.stdscr.refresh()
+
     def do_auto_update(self):
-        UPDATE_INTERVAL = 0.5    # sec.
+        UPDATE_INTERVAL = 0.25    # sec.
         if not self.auto_update:
             return False
         if self.last_update + UPDATE_INTERVAL > time.time():
             return False
         self.last_update = time.time()
         return True
+
     def process_terminal_events(self):
         # return true signifies end of main event loop
         if curses.is_term_resized(self.maxy, self.maxx) is True:
             self.resize_curses()
+
         _ORD_C = ord('c')
         _ORD_S = ord('s')
         _ORD_L = ord('l')
@@ -299,9 +318,11 @@ class curses_terminal(threading.Thread):
         elif c == curses.KEY_RIGHT:
             self.change_chan(+1)
         return False
+
     def change_chan(self, incr):
         if len(self.channel_list) == 0:
             return
+
         i = self.channel_list.index(self.current_msgqid) if self.current_msgqid in self.channel_list else 0
         i += incr
         if i >= len(self.channel_list):
@@ -309,6 +330,7 @@ class curses_terminal(threading.Thread):
         elif i < 0:
             i = len(self.channel_list) - 1
         self.current_msgqid = self.channel_list[i]
+
     def process_json(self, js):
         # return true signifies end of main event loop
         msg = json.loads(js)
@@ -460,6 +482,7 @@ class curses_terminal(threading.Thread):
                 self.lg_step = int(msg['tuning_step_large'])
  
         return False
+
     def process_q_events(self):
         # return true signifies end of main event loop
         while True:
@@ -471,6 +494,7 @@ class curses_terminal(threading.Thread):
             if msg.type() == -4:
                 return self.process_json(msg.to_string())
         return False
+
     def send_command(self, command, arg1 = 0, arg2 = 0):
         if self.sock:
             js = json.dumps({'command': command, 'arg1': arg1, 'arg2': arg2})
@@ -481,9 +505,11 @@ class curses_terminal(threading.Thread):
         else:
             msg = gr.message().make_from_string(command, -2, arg1, arg2)
             self.output_q.insert_tail(msg)
+
     def run(self):
         try:
             self.setup_curses()
+
             while(self.keep_running):
                 if self.process_terminal_events():
                     break
@@ -496,9 +522,11 @@ class curses_terminal(threading.Thread):
             self.end_terminal()
             self.keep_running = False
         self.send_command('quit', 0)
+
 class http_terminal(threading.Thread):
     def __init__(self, input_q,  output_q, endpoint, **kwds):
         from http_server import http_server
+
         threading.Thread.__init__ (self, **kwds)
         self.setDaemon(1)
         self.input_q = input_q
@@ -506,13 +534,18 @@ class http_terminal(threading.Thread):
         self.endpoint = endpoint
         self.keep_running = True
         self.server = http_server(self.input_q, self.output_q, self.endpoint)
+
         self.start()
+
     def get_terminal_type(self):
         return "http"
+
     def end_terminal(self):
         self.keep_running = False
+
     def run(self):
         self.server.run()
+
 class udp_terminal(threading.Thread):
     def __init__(self, input_q,  output_q, port, **kwds):
         threading.Thread.__init__ (self, **kwds)
@@ -520,26 +553,32 @@ class udp_terminal(threading.Thread):
         self.input_q = input_q
         self.output_q = output_q
         self.keep_running = True
-        self.port = port
+        self.port = 8080
         self.remote_ip = '127.0.0.1'
-        self.remote_port = 0
+        self.remote_port = 8080
         self.keepalive_until = 0
+
         self.setup_socket(port)
         self.q_handler = q_watcher(self.input_q, self.process_qmsg)
         self.start()
+
     def get_terminal_type(self):
         return "udp"
+
     def setup_socket(self, port):
         self.sock =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.sock.bind(('0.0.0.0', port))
+
     def process_qmsg(self, msg):
         if time.time() >= self.keepalive_until:
             return
         s = msg.to_string()
         if msg.type() == -4 and self.remote_port > 0:
             self.sock.sendto(s, (self.remote_ip, self.remote_port))
+
     def end_terminal(self):
         self.keep_running = False
+
     def run(self):
         while self.keep_running:
             data, addr = self.sock.recvfrom(2048)
@@ -552,6 +591,7 @@ class udp_terminal(threading.Thread):
             self.remote_ip = addr[0]
             self.remote_port = addr[1]
             self.keepalive_until = time.time() + KEEPALIVE_TIME
+
 def op25_terminal(input_q,  output_q, terminal_type):
         if terminal_type == 'curses':
             return curses_terminal(input_q, output_q)
@@ -563,17 +603,22 @@ def op25_terminal(input_q,  output_q, terminal_type):
         else:
             sys.stderr.write('warning: unsupported terminal type: %s\n' % terminal_type)
             return None
+
 class terminal_client(object):
     def __init__(self):
         self.input_q = gr.msg_queue(10)
         self.keep_running = True
         self.terminal = None
+
         ip_addr = sys.argv[1]
         port = int(sys.argv[2])
+
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.sock.connect((ip_addr, port))
         self.sock.settimeout(0.1)
+
         self.terminal = curses_terminal(self.input_q, None, sock=self.sock)
+
     def run(self): 
         while self.keep_running:
             try:
@@ -586,6 +631,7 @@ class terminal_client(object):
                 raise
             if not self.terminal.keep_running:
                 self.keep_running = False
+
 if __name__ == '__main__':
     terminal = None
     try:

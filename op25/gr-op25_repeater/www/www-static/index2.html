@@ -28,28 +28,28 @@ html {
 <div id="controls1" class="flex-container">
 
 	<div>
-	<input type="button" class="scan-button" name="skip" value="SKIP" title="" onclick="javascript:f_scan_button(&quot;skip&quot;);">
+	<input type="button" class="scan-button" name="skip" value="SKIP" title="Skip current tgid" onclick="javascript:f_scan_button(&quot;skip&quot;);">
 	</div>
 
 	<div>
-	<input type="button" class="scan-button" name="hold" value="HOLD" title="" onclick="javascript:f_scan_button(&quot;hold&quot;);">
+	<input type="button" class="scan-button" name="hold" value="HOLD" title="Hold current tgid" onclick="javascript:f_scan_button(&quot;hold&quot;);">
 	</div>
 
 	<div>
-	<input type="button" class="scan-button" name="goto" value="GOTO" title="" onclick="javascript:f_scan_button(&quot;goto&quot;);">
+	<input type="button" class="scan-button" name="goto" value="GOTO" title="Go to tgid" onclick="javascript:f_scan_button(&quot;goto&quot;);">
 	</div>
 
 	<div>
-	<input type="button" class="scan-button" name="lockout" value="B/LIST" title="" onclick="javascript:f_scan_button(&quot;lockout&quot;);">
+	<input type="button" class="scan-button" name="lockout" value="B/LIST" title="Blacklist tgid" onclick="javascript:f_scan_button(&quot;lockout&quot;);">
 	</div>
 
 	<div>
-	<input type="button" class="scan-button" name="whitelist" value="W/LIST" title="" onclick="javascript:f_scan_button(&quot;whitelist&quot;);">
-	</div>
-	<!--
+	<input type="button" class="scan-button" name="whitelist" value="W/LIST" title="Whitelist tgid" onclick="javascript:f_scan_button(&quot;whitelist&quot;);">
+	</div
+
 	<div>
-	<input type="button" class="scan-button" name="log" value="LOG" title="Log verbosity" onclick="javascript:f_scan_button(&quot;set_debug&quot);">
-	</div>-->
+	<input type="button" class="scan-button" name="log" value="LOG/V" title="Log verbosity" onclick="javascript:f_scan_button(&quot;set_debug&quot;);">
+	</div>
 
 	<div>
 		<!-- spacer -->
@@ -154,12 +154,9 @@ html {
 
 	<div id="div_s2" class="s2"> <!-- table -->
             <div class="s2_row">
-	        <div class="s2_cell_a" id="s2_ch_lbl"><span class="label"><div style="color: orange;">System</div></span></div>
+	        <div class="s2_cell_a" id="s2_ch_lbl" style="display:none;"><span class="label"><div style="color: orange;">Channel:</div></span></div>
 	        <div class="s2_cell_b2" id="s2_ch_txt" style="display:none;">&nbsp</div>
-	        
-		</div>
-		<div class="s2_row">
-		<div class="s2_cell_a"><span class="label"><div style="color: #7df57d;">Frequency</div></span></div>
+	        <div class="s2_cell_a"><span class="label"><div style="color: #7df57d;">Frequency:</div></span></div>
 	        <div class="s2_cell_b2" id="s2_freq">&nbsp</div>
 	        
 	        <div class="s2_cell_e" id="s2_ch_dn" style="display:none;"><input type="button" class="chan-button" name="c_dn" value="<" title="Prev Channel" onclick="javascript:f_chan_button(-1);"></div>
@@ -169,25 +166,24 @@ html {
 
             </div>
             <div class="s2_row">
-	        <div class="s2_cell_a"><span class="label"><div style="color: #f23535;">Talkgroup</div></span></div>
+	        <div class="s2_cell_a"><span class="label"><div style="color: red;">Talkgroup:</div></span></div>
 	        <div class="s2_cell_b2" id="s2_tg">&nbsp</div>
 	        
 	        <div class="s2_cell_h" id="s2_ch_cap" style="display:none;"><input type="button" class="cap-button" id="cap_bn" name="c_cap" value="start capture" title="Capture" onclick="javascript:f_cap_button(0);"></div>
             
             </div>
             <div class="s2_row">
-	        <div class="s2_cell_a"><span class="label"><div style="color: #2b84ff;">Unit&nbspID</div></span></div>
+	        <div class="s2_cell_a"><span class="label"><div style="color: #2b84ff;">Unit ID:</div></span></div>
 	        <div class="s2_cell_b2" id="s2_src">&nbsp</div>
             </div>
-	    <!--
-	    <div class="s2_row">
-	        <div class="s2_cell_a"><span class="label"><div style="color: #f23535;">TG ID:</div></span></div>
-		<div class="s2_cell_b2" id="s2_grp">&nbsp</div>
-		-->
+            <div class="s2_row">
+	        <div class="s2_cell_a"><span class="label"><div style="color: red;">TG ID:</div></span></div>
+	        <div class="s2_cell_b2" id="s2_grp">&nbsp</div>
+	        
 	        <div class="s2_cell_h" id="s2_ch_trk" style="display:none;"><input type="button" class="cap-button" id="trk_bn" name="c_trk" value="tracking" title="Tracking" onclick="javascript:f_trk_button(-1);"></div>
-		<!-- </div> -->
+			
+			</div>
 	</div> <!-- end table -->
-
 	<div id="div_s1" class="s1 mar1.2">
 	<!-- system freq -->
 
@@ -224,7 +220,6 @@ html {
         showTime();
     </script>
 </body>
-	<br>
 	<br>
 	<br>
 	<br>

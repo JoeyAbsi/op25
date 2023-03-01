@@ -15,4 +15,4 @@ GPIO.add_event_detect(20, GPIO.FALLING, callback=Shutdown, bouncetime=2000)   #C
 
 while 1:
 
-    time.sleep(1)
+    time.sleep(2)

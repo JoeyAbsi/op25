@@ -7,8 +7,9 @@
             "meta_stream_name": "metastream_0",
             "demod_type": "cqpsk", 
             "cqpsk_tracking": true,
-            "tracking_threshold": 30,
+            "tracking_threshold": 120,
             "tracking_limit": 2400,
+<<<<<<< HEAD
             "tracking_feedback": 0.85,
             "destination": "udp://127.0.0.1:23456",
             "excess_bw": 0.2,
@@ -16,6 +17,16 @@
             "frequency": 770506250,
             "if_rate": 24000,
             "plot": "",
+=======
+            "tracking_feedback": 0.75,
+            "destination": "udp://127.0.0.1:56120", 
+            "excess_bw": 0.2, 
+            "filter_type": "rc", 
+            "frequency": 460412500, 
+            "if_rate": 24000, 
+            "name": "p25", 
+            "plot": "symbol", 
+>>>>>>> 2390006ede0822dd94c77d9e2aff3fd77a066f3b
             "symbol_rate": 4800,
             "enable_analog": "off",
             "blacklist": "",
