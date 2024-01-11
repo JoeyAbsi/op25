@@ -381,7 +381,7 @@ function channel_status() {
     }
     s2_tg.innerHTML = html;
 
-    html = "";
+    /*html = "";
     if (current_tgid != null) {
         html += "<span class=\"value\">" + current_tgid + "</span>";
         if (hold_tgid != 0) {
@@ -395,14 +395,14 @@ function channel_status() {
     {
         html += "<span class=\"value\">&nbsp;</span>";
     }
-    s2_grp.innerHTML = html;
+    s2_grp.innerHTML = html;*/
 
     html = "";
     if ((c_srcaddr != 0) && (c_srcaddr != 0xffffff)) 
         if (c_srctag != "")
             html += "<span class=\"value\">" + c_srctag + "</span>";
         else
-            html += "<span class=\"value\">" + c_srcaddr + "</span>";
+            html += "<span class=\"value\">ID: " + c_srcaddr + "</span>";
     s2_src.innerHTML = html;
 
     if (capture_active)
